@@ -65,30 +65,63 @@ def insert_maintenance(
     return cur.lastrowid
 
 
-def get_stats(conn: sqlite3.Connection) -> dict[str, Any]:
-    """Dashboard numbers: totals, per-drink, per-day."""
-    total = conn.execute("SELECT COUNT(*) AS n FROM brew_events").fetchone()["n"]
+def get_stats(
+    conn: sqlite3.Connection,
+    start: str | None = None,
+    end: str | None = None,
+) -> dict[str, Any]:
+    """Dashboard numbers: totals, per-drink, per-day.
+
+    `start`/`end` are storage-format timestamp strings or None. The range is
+    half-open: timestamp >= start (if given) and timestamp < end (if given).
+    """
+    clauses = []
+    params: list[str] = []
+    if start is not None:
+        clauses.append("timestamp >= ?")
+        params.append(start)
+    if end is not None:
+        clauses.append("timestamp < ?")
+        params.append(end)
+    where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+
+    total = conn.execute(
+        f"SELECT COUNT(*) AS n FROM brew_events {where}", params
+    ).fetchone()["n"]
+
+    join_clauses = []
+    join_params: list[str] = []
+    if start is not None:
+        join_clauses.append("AND be.timestamp >= ?")
+        join_params.append(start)
+    if end is not None:
+        join_clauses.append("AND be.timestamp < ?")
+        join_params.append(end)
+    join_extra = " ".join(join_clauses)
     per_drink = [
         dict(r)
         for r in conn.execute(
-            """
+            f"""
             SELECT dt.name, dt.label, COUNT(be.id) AS count
             FROM drink_types dt
-            LEFT JOIN brew_events be ON be.drink_type = dt.name
+            LEFT JOIN brew_events be ON be.drink_type = dt.name {join_extra}
             GROUP BY dt.id
             ORDER BY dt.id
-            """
+            """,
+            join_params,
         )
     ]
     per_day = [
         dict(r)
         for r in conn.execute(
-            """
+            f"""
             SELECT DATE(timestamp) AS day, COUNT(*) AS count
             FROM brew_events
+            {where}
             GROUP BY DATE(timestamp)
             ORDER BY day
-            """
+            """,
+            params,
         )
     ]
     return {"total_brews": total, "per_drink": per_drink, "per_day": per_day}

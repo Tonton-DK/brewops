@@ -2,7 +2,7 @@
 
 import sqlite3
 from contextlib import asynccontextmanager, closing
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import uvicorn
@@ -71,9 +71,32 @@ class MaintenanceIn(BaseModel):
     error_code: str | None = None
 
 
+def parse_filter_date(value: str, param_name: str) -> date:
+    try:
+        return datetime.strptime(value.strip(), "%Y-%m-%d").date()
+    except ValueError:
+        raise HTTPException(400, f"unparsable {param_name} {value!r}")
+
+
 @app.get("/api/stats")
-def stats(conn: sqlite3.Connection = Depends(get_db)):
-    return queries.get_stats(conn)
+def stats(
+    start: str | None = None,
+    end: str | None = None,
+    conn: sqlite3.Connection = Depends(get_db),
+):
+    start_ts = None
+    end_ts = None
+    if start is not None:
+        start_date = parse_filter_date(start, "start")
+        start_ts = start_date.strftime("%Y-%m-%d 00:00:00")
+    if end is not None:
+        end_date = parse_filter_date(end, "end")
+        if start is not None and end_date < start_date:
+            raise HTTPException(400, "end date is before start date")
+        # exclusive upper bound: start of the day after `end`, so the whole
+        # end date is included
+        end_ts = (end_date + timedelta(days=1)).strftime("%Y-%m-%d 00:00:00")
+    return queries.get_stats(conn, start=start_ts, end=end_ts)
 
 
 @app.get("/api/machines")
