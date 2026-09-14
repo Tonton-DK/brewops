@@ -94,5 +94,30 @@
   </main>
 
   <script src="/app.js"></script>
+
+  <!-- Easter egg: the official ZURB jQuery Raptorize plugin (MIT), vendored as-is. -->
+  <!-- Its own 'konami-code' mode unbinds itself after firing once, so it's driven here
+       instead via 'click' on a dedicated hidden element, re-triggerable indefinitely. -->
+  <button id="raptor-trigger" type="button" hidden aria-hidden="true"></button>
+  <script src="/vendor/jquery.min.js"></script>
+  <script src="/vendor/jquery.raptorize.js"></script>
+  <script>
+    $(window).load(function () {
+      var $trigger = $("#raptor-trigger").raptorize({ enterOn: "click" });
+      var KONAMI_KEYCODES = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+      var progress = 0;
+      $(document).keydown(function (e) {
+        if (e.keyCode === KONAMI_KEYCODES[progress]) {
+          progress += 1;
+          if (progress === KONAMI_KEYCODES.length) {
+            progress = 0;
+            $trigger.trigger("click");
+          }
+        } else {
+          progress = e.keyCode === KONAMI_KEYCODES[0] ? 1 : 0;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

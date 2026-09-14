@@ -7,6 +7,7 @@ from pathlib import Path
 
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -121,6 +122,18 @@ def log_maintenance(event: MaintenanceIn, conn: sqlite3.Connection = Depends(get
     conn.commit()
     return {"id": event_id, "status": "logged"}
 
+
+# Vendored third-party assets (e.g. the Raptorize easter egg) live outside
+# FRONTEND_DIR so the app's own frontend stays free of binary/vendor files.
+RAPTORIZE_DIR = Path(__file__).resolve().parent.parent / "vendor" / "raptorize"
+if RAPTORIZE_DIR.is_dir():
+    app.mount("/vendor", StaticFiles(directory=RAPTORIZE_DIR), name="vendor")
+    for asset in ("raptor.png", "raptor-sound.mp3", "raptor-sound.ogg"):
+
+        def _serve_raptor_asset(path: Path = RAPTORIZE_DIR / asset):
+            return FileResponse(path)
+
+        app.get(f"/{asset}")(_serve_raptor_asset)
 
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 if FRONTEND_DIR.is_dir():
