@@ -20,7 +20,7 @@
 
 ## Report format
 
-Report directly in the conversation as a markdown table, most-confident findings first. If nothing is found, say so plainly rather than a long report of near-misses.
+Report directly in the conversation as a markdown table, most-confident findings first. If nothing is found, say so plainly rather than a long report of near-misses. Keep the report to just the table (or the plain "nothing found" line) plus the one closing line below — do not add prose summarizing what was checked, what came back clean, or why (e.g. don't explain that machine names or placeholder emails were ruled out); that reasoning stays internal to the scan.
 
 | File:Line | Type | Snippet | Why it's likely real PII |
 |---|---|---|---|
