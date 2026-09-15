@@ -1,0 +1,215 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - heading "BrewOps - Anton Style" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Office coffee fleet — telemetry & operations
+  - main [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - text: From
+        - textbox "From" [ref=e8]
+        - text: To
+        - textbox "To" [ref=e9]
+        - button "Apply" [ref=e10]
+        - button "Clear" [ref=e11]
+        - status [ref=e12]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: "5274"
+          - generic [ref=e16]: brews total
+        - generic [ref=e17]:
+          - generic [ref=e18]: "2"
+          - generic [ref=e19]: brews on last day shown
+        - generic [ref=e20]:
+          - generic [ref=e21]: "4"
+          - generic [ref=e22]: machines
+      - generic [ref=e23]:
+        - heading "Per drink" [level=2] [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e208]:
+            - generic [ref=e209]: Espresso
+            - generic [ref=e212]: "2019"
+          - generic [ref=e213]:
+            - generic [ref=e214]: Lungo
+            - generic [ref=e217]: "775"
+          - generic [ref=e218]:
+            - generic [ref=e219]: Cappuccino
+            - generic [ref=e222]: "988"
+          - generic [ref=e223]:
+            - generic [ref=e224]: Latte
+            - generic [ref=e227]: "734"
+          - generic [ref=e228]:
+            - generic [ref=e229]: Americano
+            - generic [ref=e232]: "501"
+          - generic [ref=e233]:
+            - generic [ref=e234]: Hot water
+            - generic [ref=e237]: "257"
+      - generic [ref=e56]:
+        - heading "Brews over time" [level=2] [ref=e57]
+        - img "Brews per day" [ref=e58]:
+          - 'generic "2026-04-01: 52 brews" [ref=e238]'
+          - 'generic "2026-04-02: 84 brews" [ref=e239]'
+          - 'generic "2026-04-03: 82 brews" [ref=e240]'
+          - 'generic "2026-04-04: 4 brews" [ref=e241]'
+          - 'generic "2026-04-05: 4 brews" [ref=e242]'
+          - 'generic "2026-04-06: 79 brews" [ref=e243]'
+          - 'generic "2026-04-07: 65 brews" [ref=e244]'
+          - 'generic "2026-04-08: 76 brews" [ref=e245]'
+          - 'generic "2026-04-09: 72 brews" [ref=e246]'
+          - 'generic "2026-04-10: 82 brews" [ref=e247]'
+          - 'generic "2026-04-11: 2 brews" [ref=e248]'
+          - 'generic "2026-04-13: 72 brews" [ref=e249]'
+          - 'generic "2026-04-14: 72 brews" [ref=e250]'
+          - 'generic "2026-04-15: 74 brews" [ref=e251]'
+          - 'generic "2026-04-16: 87 brews" [ref=e252]'
+          - 'generic "2026-04-17: 73 brews" [ref=e253]'
+          - 'generic "2026-04-18: 5 brews" [ref=e254]'
+          - 'generic "2026-04-19: 2 brews" [ref=e255]'
+          - 'generic "2026-04-20: 72 brews" [ref=e256]'
+          - 'generic "2026-04-21: 77 brews" [ref=e257]'
+          - 'generic "2026-04-22: 78 brews" [ref=e258]'
+          - 'generic "2026-04-23: 77 brews" [ref=e259]'
+          - 'generic "2026-04-24: 74 brews" [ref=e260]'
+          - 'generic "2026-04-25: 3 brews" [ref=e261]'
+          - 'generic "2026-04-26: 3 brews" [ref=e262]'
+          - 'generic "2026-04-27: 71 brews" [ref=e263]'
+          - 'generic "2026-04-28: 73 brews" [ref=e264]'
+          - 'generic "2026-04-29: 75 brews" [ref=e265]'
+          - 'generic "2026-04-30: 84 brews" [ref=e266]'
+          - 'generic "2026-05-01: 71 brews" [ref=e267]'
+          - 'generic "2026-05-02: 2 brews" [ref=e268]'
+          - 'generic "2026-05-03: 3 brews" [ref=e269]'
+          - 'generic "2026-05-04: 75 brews" [ref=e270]'
+          - 'generic "2026-05-05: 85 brews" [ref=e271]'
+          - 'generic "2026-05-06: 71 brews" [ref=e272]'
+          - 'generic "2026-05-07: 78 brews" [ref=e273]'
+          - 'generic "2026-05-08: 81 brews" [ref=e274]'
+          - 'generic "2026-05-09: 2 brews" [ref=e275]'
+          - 'generic "2026-05-10: 4 brews" [ref=e276]'
+          - 'generic "2026-05-11: 69 brews" [ref=e277]'
+          - 'generic "2026-05-12: 79 brews" [ref=e278]'
+          - 'generic "2026-05-13: 87 brews" [ref=e279]'
+          - 'generic "2026-05-14: 93 brews" [ref=e280]'
+          - 'generic "2026-05-15: 87 brews" [ref=e281]'
+          - 'generic "2026-05-16: 2 brews" [ref=e282]'
+          - 'generic "2026-05-17: 5 brews" [ref=e283]'
+          - 'generic "2026-05-18: 68 brews" [ref=e284]'
+          - 'generic "2026-05-19: 74 brews" [ref=e285]'
+          - 'generic "2026-05-20: 89 brews" [ref=e286]'
+          - 'generic "2026-05-21: 80 brews" [ref=e287]'
+          - 'generic "2026-05-22: 68 brews" [ref=e288]'
+          - 'generic "2026-05-23: 3 brews" [ref=e289]'
+          - 'generic "2026-05-24: 2 brews" [ref=e290]'
+          - 'generic "2026-05-25: 84 brews" [ref=e291]'
+          - 'generic "2026-05-26: 67 brews" [ref=e292]'
+          - 'generic "2026-05-27: 76 brews" [ref=e293]'
+          - 'generic "2026-05-28: 87 brews" [ref=e294]'
+          - 'generic "2026-05-29: 76 brews" [ref=e295]'
+          - 'generic "2026-05-30: 2 brews" [ref=e296]'
+          - 'generic "2026-05-31: 4 brews" [ref=e297]'
+          - 'generic "2026-06-01: 77 brews" [ref=e298]'
+          - 'generic "2026-06-02: 86 brews" [ref=e299]'
+          - 'generic "2026-06-03: 75 brews" [ref=e300]'
+          - 'generic "2026-06-04: 73 brews" [ref=e301]'
+          - 'generic "2026-06-05: 77 brews" [ref=e302]'
+          - 'generic "2026-06-07: 2 brews" [ref=e303]'
+          - 'generic "2026-06-08: 64 brews" [ref=e304]'
+          - 'generic "2026-06-09: 73 brews" [ref=e305]'
+          - 'generic "2026-06-10: 77 brews" [ref=e306]'
+          - 'generic "2026-06-11: 77 brews" [ref=e307]'
+          - 'generic "2026-06-12: 64 brews" [ref=e308]'
+          - 'generic "2026-06-13: 4 brews" [ref=e309]'
+          - 'generic "2026-06-14: 1 brews" [ref=e310]'
+          - 'generic "2026-06-15: 69 brews" [ref=e311]'
+          - 'generic "2026-06-16: 71 brews" [ref=e312]'
+          - 'generic "2026-06-17: 66 brews" [ref=e313]'
+          - 'generic "2026-06-18: 76 brews" [ref=e314]'
+          - 'generic "2026-06-19: 78 brews" [ref=e315]'
+          - 'generic "2026-06-20: 1 brews" [ref=e316]'
+          - 'generic "2026-06-21: 2 brews" [ref=e317]'
+          - 'generic "2026-06-22: 68 brews" [ref=e318]'
+          - 'generic "2026-06-23: 71 brews" [ref=e319]'
+          - 'generic "2026-06-24: 92 brews" [ref=e320]'
+          - 'generic "2026-06-25: 70 brews" [ref=e321]'
+          - 'generic "2026-06-26: 70 brews" [ref=e322]'
+          - 'generic "2026-06-27: 4 brews" [ref=e323]'
+          - 'generic "2026-06-28: 2 brews" [ref=e324]'
+          - 'generic "2026-06-29: 82 brews" [ref=e325]'
+          - 'generic "2026-06-30: 86 brews" [ref=e326]'
+          - 'generic "2026-07-01: 94 brews" [ref=e327]'
+          - 'generic "2026-07-02: 85 brews" [ref=e328]'
+          - 'generic "2026-07-03: 84 brews" [ref=e329]'
+          - 'generic "2026-07-04: 3 brews" [ref=e330]'
+          - 'generic "2026-09-15: 2 brews" [ref=e331]'
+      - generic [ref=e153]:
+        - heading "Machines" [level=2] [ref=e154]
+        - generic [ref=e181]:
+          - generic [ref=e332]:
+            - heading "Bertha (3rd floor)" [level=3] [ref=e333]
+            - paragraph [ref=e334]: telemetry
+            - paragraph [ref=e335]: Espresso specialist
+            - paragraph [ref=e336]: 2583 brews · last 2026-09-15 11:55
+            - paragraph [ref=e337]: "Last maintenance: refill on 2026-07-04"
+          - generic [ref=e338]:
+            - heading "The Intern (kitchen)" [level=3] [ref=e339]
+            - paragraph [ref=e340]: telemetry
+            - paragraph [ref=e341]: Espresso specialist
+            - paragraph [ref=e342]: 1205 brews · last 2026-07-03 15:49
+            - paragraph [ref=e343]: "Last maintenance: refill on 2026-07-03"
+            - paragraph [ref=e344]: "Recent errors: E02 (2026-05-11)"
+          - generic [ref=e345]:
+            - heading "Old Faithful (2nd floor)" [level=3] [ref=e346]
+            - paragraph [ref=e347]: manual log
+            - paragraph [ref=e348]: Lungo specialist
+            - paragraph [ref=e349]: 21 brews · last 2026-07-03 10:15
+            - paragraph [ref=e350]: "Last maintenance: descale on 2026-05-30"
+          - generic [ref=e351]:
+            - heading "Rocket (4th floor)" [level=3] [ref=e352]
+            - paragraph [ref=e353]: telemetry
+            - paragraph [ref=e354]: Espresso specialist
+            - paragraph [ref=e355]: 1465 brews · last 2026-07-03 16:26
+            - paragraph [ref=e356]: "Last maintenance: refill on 2026-07-04"
+            - paragraph [ref=e357]: "Recent errors: E13 (2026-07-03), E13 (2026-07-02), E07 (2026-06-27), E07 (2026-06-25), E13 (2026-06-20)"
+    - generic [ref=e155]:
+      - heading "Log a brew" [level=2] [ref=e156]
+      - paragraph [ref=e157]: For machines that don't report their own events — looking at you, Old Faithful.
+      - generic [ref=e158]:
+        - generic [ref=e159]: Machine
+        - combobox "Machine" [ref=e160]:
+          - option "Bertha (3rd floor)" [selected]
+          - option "The Intern (kitchen)"
+          - option "Old Faithful (2nd floor)"
+          - option "Rocket (4th floor)"
+        - generic [ref=e161]: Drink
+        - combobox "Drink" [ref=e162]:
+          - option "Espresso" [selected]
+          - option "Lungo"
+          - option "Cappuccino"
+          - option "Latte"
+          - option "Americano"
+          - option "Hot water"
+        - generic [ref=e163]: When
+        - textbox "When" [ref=e164]: 2026-09-15T11:55
+        - button "Log brew" [active] [ref=e165] [cursor=pointer]
+        - status [ref=e166]: Logged.
+    - generic [ref=e167]:
+      - heading "Log maintenance" [level=2] [ref=e168]
+      - generic [ref=e169]:
+        - generic [ref=e170]: Machine
+        - combobox "Machine" [ref=e171]:
+          - option "Bertha (3rd floor)" [selected]
+          - option "The Intern (kitchen)"
+          - option "Old Faithful (2nd floor)"
+          - option "Rocket (4th floor)"
+        - generic [ref=e172]: Type
+        - combobox "Type" [ref=e173]:
+          - option "Descale" [selected]
+          - option "Refill"
+          - option "Repair"
+          - option "Error"
+        - generic [ref=e174]: When
+        - textbox "When" [ref=e175]: 2026-09-15T11:55
+        - generic [ref=e176]: Note
+        - textbox "Note" [ref=e177]:
+          - /placeholder: optional
+        - button "Log maintenance" [ref=e178] [cursor=pointer]
+        - status [ref=e179]

@@ -14,7 +14,7 @@ ingest = "brewops.ingest.cli:main_entry"
 seed = "brewops.ingest.cli:seed_entry"
 
 [dependency-groups]
-dev = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "pytest-playwright>=0.5"]
 
 [build-system]
 requires = ["uv_build>=0.11,<0.13"]

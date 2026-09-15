@@ -1,0 +1,73 @@
+<mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="750" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <mxCell id="layer_ingest" value="INGESTION (2 paths)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;align=center;fontSize=14;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="40" y="40" width="280" height="600" as="geometry" />
+    </mxCell>
+    <mxCell id="layer_db" value="DATABASE (SQLite)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6f2ff;strokeColor=#6c8ebf;verticalAlign=top;align=center;fontSize=14;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="360" y="40" width="280" height="600" as="geometry" />
+    </mxCell>
+    <mxCell id="layer_api" value="API (FastAPI - api/main.py)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;align=center;fontSize=14;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="680" y="40" width="280" height="600" as="geometry" />
+    </mxCell>
+    <mxCell id="layer_frontend" value="FRONTEND" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6ffe6;strokeColor=#82b366;verticalAlign=top;align=center;fontSize=14;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1000" y="40" width="320" height="600" as="geometry" />
+    </mxCell>
+
+    <mxCell id="csv_files" value="CSV Files&#10;data/inbox&#10;brews_*.csv (source=csv)&#10;manual_*.csv (source=manual)&#10;maintenance_*.csv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="60" y="90" width="240" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="loader" value="ingest/loader.py&#10;ingest/cli.py&#10;(uv run ingest / uv run seed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="60" y="230" width="240" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="forms" value="Manual Entry&#10;frontend forms&#10;(&quot;Log a brew&quot; / &quot;Log maintenance&quot;)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="60" y="440" width="240" height="90" as="geometry" />
+    </mxCell>
+
+    <mxCell id="tables" value="brew_events&#10;maintenance_events&#10;(SQLite tables)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="380" y="100" width="240" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="drink_types" value="drink_types&#10;(FK source of truth for&#10;valid drinks, by name)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="380" y="210" width="180" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="queries" value="db/queries.py&#10;all reads &amp; writes&#10;get_stats(), get_machine_health()&#10;(derived at query time)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="380" y="320" width="240" height="90" as="geometry" />
+    </mxCell>
+
+    <mxCell id="api_app" value="FastAPI app&#10;api/main.py&#10;port 8123&#10;/api/brews, /api/maintenance,&#10;/api/* (stats, health)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="700" y="220" width="240" height="120" as="geometry" />
+    </mxCell>
+
+    <mxCell id="dashboard" value="Dashboard&#10;index.html + app.js + style.css&#10;(fetches JSON, renders DOM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1020" y="260" width="260" height="90" as="geometry" />
+    </mxCell>
+
+    <mxCell id="e1" value="parsed by" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="csv_files" target="loader">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e2" value="INSERT rows&#10;(source=csv / manual)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="loader" target="tables">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e3" value="FK by name" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="drink_types" target="tables">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e4" value="read/write" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=0.9;exitY=1;exitDx=0;exitDy=0;entryX=0.9;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tables" target="queries">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e5" value="POST /api/brews&#10;POST /api/maintenance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="forms" target="api_app">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e6" value="INSERT&#10;(source=manual)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_app" target="tables">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e7" value="SELECT via queries.py" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="queries" target="api_app">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e8" value="GET /api/*&#10;JSON" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_app" target="dashboard">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
